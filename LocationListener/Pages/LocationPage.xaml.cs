@@ -1,9 +1,13 @@
-﻿namespace LocationListener.Pages;
+﻿using LocationListener.ViewModels;
+
+namespace LocationListener.Pages;
 
 public partial class LocationPage : ContentPage
 {
-  public LocationPage()
+  public LocationPage(LocationVM vm)
   {
     InitializeComponent();
+
+    BindingContext = vm;
   }
 }

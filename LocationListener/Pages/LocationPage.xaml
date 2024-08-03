@@ -1,13 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LocationListener.ViewModels"
+             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
              x:Class="LocationListener.Pages.LocationPage"
+             x:DataType="vm:LocationVM"
              Title="">
 
   <VerticalStackLayout>
-    <Button Text="Start"/>
-    <Button Text="Stop"/>
-    <Label Text="Latest"/>
+    <Button Text="Start" Command="{Binding StartGettingLocationCommand}" IsVisible="{Binding IsNotListening}"/>
+    <Button Text="Stop" Command="{Binding StopGettingLocationCommand}" IsVisible="{Binding IsListening}"/>
+    <ScrollView>
+      <CollectionView ItemsSource="{Binding Locations}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate x:DataType="sensors:Location">
+            <VerticalStackLayout>
+              <Label Text="{Binding Latitude}"/>
+              <Label Text="{Binding Longitude}"/>
+            </VerticalStackLayout>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </ScrollView>
   </VerticalStackLayout>
 
 </ContentPage>

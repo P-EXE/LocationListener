@@ -16,10 +16,8 @@ namespace LocationListener
           fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
         });
 
-#if DEBUG
-  		builder.Logging.AddDebug();
-#endif
-
+      builder.ConfigureLogging();
+      builder.ConfigurePages();
       builder.ConfigureServices();
       builder.ConfigureViewModels();
 
