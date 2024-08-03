@@ -16,3 +16,6 @@ The view model for the `LocationPage`. It listens to the `ILocationService` `Loc
 
 # LocationPage
 The page consists of 2 `Button`s, start and stop, and a `CollectionView` displaying the `Location`s recorded since the start.
+
+# Testing
+The app was tested on a Samsung Galaxy S9 starlte G970F using [Fake GPS location](https://play.google.com/store/apps/details?id=com.lexa.fakegps&hl=de_AT&pli=1) and worked with acceptable performance.
